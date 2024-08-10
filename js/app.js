@@ -15,7 +15,9 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     xhr.onprogress = (e) => {
       //console.log('progress:' + e.total);
-      status.innerHTML = `load: ${e.loaded / e.total * 100}%`
+      const progress = Math.round(e.loaded / e.total * 10000) / 100;
+
+      status.innerHTML = `Status: <b>working</b></br>iteration: <b>${loadings}</b><br/>progress: <b>${progress}%</b>`
     }
 
     xhr.send()
